@@ -1,0 +1,46 @@
+<!doctype html>  
+<html>  
+<head>  
+<title>微信公众号管理</title>  
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE">
+<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+</head>  
+<body>  
+  <!-- 内容 -->  
+  <div style="border: 1px solid yellow;padding: 16px;" class="text-center">  
+      <h3>这里负责刷新公众号的Token</h3>
+      <button type="button" class="btn btn-primary btn-sm btn-run—all btn-token">获取Token</button>
+  </div>  
+  <!-- 版权标识 -->  
+  <div style="border: 1px solid yellow;padding: 16px;margin-left: 8px;">  
+    <p>菜单管理</p>  
+    <div style="padding: 10px 10px 10px;">
+    <form class="bs-example bs-example-form" role="form">
+        <div class="input-group">
+            <span class="input-group-addon">输入JSON格式的菜单数据</span>
+            <textarea type="text" class="form-control" rows="5" placeholder="json" id="textarea"></textarea>
+        </div>
+        <br>
+    </form>
+</div>
+  </div> 
+
+  <script src='/static/libs/jquery-2.0.3.min.js'></script>
+  <script type="text/javascript">
+    $(".btn-token").on('click',function(e){
+
+      $.get('/update',function(back){
+          if (back && back.status) {
+            alert(back.msg);
+          }else{
+           alert("error"); 
+          }
+      });
+    });
+  </script> 
+</body>  
+  
+</html>  
